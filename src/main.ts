@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    setDarkmodeCookie(
+    private setDarkmodeCookie(
       key: string,
       value: string,
       time: number,
@@ -40,13 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
       document.cookie = `${key}=${value};${pathValue}expires=${expires.toUTCString()}${isSecure}`;
     }
 
-    getDarkmodeCookie(): string | null {
+    private getDarkmodeCookie(): string | null {
       const keyValue = document.cookie.match("(^|;) ?darkmode=([^;]*)(;|$)");
 
       return keyValue ? keyValue[2] : null;
     }
 
-    removeDarkmodeCookie(): void {
+    private removeDarkmodeCookie(): void {
       document.cookie = "darkmode=; Max-Age=0; path=/";
     }
   }
